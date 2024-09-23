@@ -9,7 +9,10 @@ on:
       - 'OracleInstantClient/*/21/*'
       - 'OracleInstantClient/*/23/*'
       - '.github/workflows/build-and-push-instantclient-images.yml'
-  workflow_dispatch:
+    schedule:
+      #- cron: '30 2 * * 4'  # Wednesday @ 0230 UTC
+      - cron: '0 3 * * 1'  # Monday 3am
+    workflow_dispatch:
 
 jobs:
   push:
